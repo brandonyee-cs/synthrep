@@ -1,4 +1,4 @@
-"""Figure 1: synthesizers look faithful by the generic score but do not recover published estimates.
+"""Figure 1: coverage of the original estimate and SDV quality score, by synthetic file.
 
   python -m synthrep.figure
 """
@@ -12,9 +12,9 @@ import pandas as pd
 from .data import ROOT
 
 D = ROOT / "synth_results"
-LABEL = {"bootstrap": "Resampled real data\n(reference)", "cart": "CART (synthpop-style)",
+LABEL = {"bootstrap": "Resampled original data", "cart": "CART",
          "copula": "Gaussian copula", "tvae": "TVAE", "ctgan": "CTGAN",
-         "ctgan300": "CTGAN, 300 epochs", "marginals": "Independent marginals\n(no relationships)"}
+         "ctgan300": "CTGAN, 300 epochs", "marginals": "Independent columns\n(no relationships)"}
 ORDER = ["bootstrap", "cart", "copula", "tvae", "ctgan", "ctgan300", "marginals"]
 INK, MUTED, GRID, SERIES, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#2a78d6", "#fcfcfb"
 
@@ -28,8 +28,8 @@ def main():
     y = range(len(rows))[::-1]
     fig, axes = plt.subplots(1, 2, figsize=(9, 3.6), sharey=True, facecolor=SURF)
     for ax, vals, title, ref in [
-        (axes[0], cov, "Synthetic 95% CIs that contain\nthe real-data estimate", 0.95),
-        (axes[1], q, "Generic quality score\n(SDV Quality Report)", None)]:
+        (axes[0], cov, "Synthetic 95% CI contains\nthe original estimate", 0.95),
+        (axes[1], q, "SDV quality score", None)]:
         ax.set_facecolor(SURF)
         v = [vals[r] for r in rows]
         ax.hlines(list(y), 0, v, color=GRID, lw=2, zorder=1)
@@ -50,8 +50,8 @@ def main():
         ax.tick_params(axis="x", color=GRID)
     axes[0].set_yticks(list(y))
     axes[0].set_yticklabels([LABEL[r] for r in rows], fontsize=9, color=INK)
-    fig.text(0.01, 0.01, "32 published-style coefficients, GSS 1972-2024 and ACS 2022 (PA). "
-             "Quality score: replicate 0 of each synthesizer.", fontsize=7.5, color=MUTED)
+    fig.text(0.01, 0.01, "32 coefficients from 16 regressions on the GSS (1972-2024) and ACS (2022, Pennsylvania). "
+             "Quality score from the first synthetic file of each kind.", fontsize=7.5, color=MUTED)
     fig.tight_layout(rect=(0, 0.04, 1, 1))
     fig.savefig(D / "figure1.png", dpi=200, facecolor=SURF)
     print("wrote", D / "figure1.png")
