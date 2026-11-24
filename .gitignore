@@ -1,0 +1,16 @@
+# Whitelist: only the synthrep project is versioned
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/requirements.txt
+!/synthrep/
+!/scripts/
+!/paper/
+!/synth_results/
+synth_results/samples/
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.out
