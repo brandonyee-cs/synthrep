@@ -1,0 +1,387 @@
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.21178022868050805, "se": 0.008809706498344288, "method": "original", "rep": 0}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.16970770597031104, "se": 0.008702544027752395, "method": "original", "rep": 0}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.23904739543927025, "se": 0.007984394462951412, "method": "original", "rep": 0}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20567047987419124, "se": 0.008924552060597885, "method": "original", "rep": 0}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.21913167021955243, "se": 0.008831013979174192, "method": "bootstrap", "rep": 0}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.17972152473681188, "se": 0.008666847312099966, "method": "bootstrap", "rep": 0}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2503175704342927, "se": 0.008072279569281221, "method": "bootstrap", "rep": 0}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.22445565827432987, "se": 0.00929222522774223, "method": "bootstrap", "rep": 0}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.22207605522379126, "se": 0.008787432477894886, "method": "bootstrap", "rep": 1}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.18493839002223883, "se": 0.008655310129627405, "method": "bootstrap", "rep": 1}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2500675352628186, "se": 0.007883225933116763, "method": "bootstrap", "rep": 1}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20329298962551276, "se": 0.008627964406133129, "method": "bootstrap", "rep": 1}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.21601948802518534, "se": 0.008875550255411344, "method": "bootstrap", "rep": 2}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.1699431641768872, "se": 0.008735383559557885, "method": "bootstrap", "rep": 2}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.24612125677379298, "se": 0.00791463586918563, "method": "bootstrap", "rep": 2}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.21431704573401084, "se": 0.008903929411695153, "method": "bootstrap", "rep": 2}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.20172319830372304, "se": 0.008859098055256883, "method": "bootstrap", "rep": 3}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.16284380358866485, "se": 0.008574186701868911, "method": "bootstrap", "rep": 3}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2268890759295884, "se": 0.007944899410180619, "method": "bootstrap", "rep": 3}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.18277840782952204, "se": 0.008781198570356037, "method": "bootstrap", "rep": 3}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.20211196699445685, "se": 0.008875906067229015, "method": "bootstrap", "rep": 4}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.1584782313356231, "se": 0.00875291791739595, "method": "bootstrap", "rep": 4}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2296778282979583, "se": 0.007988058745771383, "method": "bootstrap", "rep": 4}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.2014371542192504, "se": 0.008949722800451912, "method": "bootstrap", "rep": 4}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.2209134789363297, "se": 0.008730458865994852, "method": "bootstrap", "rep": 5}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.18377259924147238, "se": 0.008661179128905723, "method": "bootstrap", "rep": 5}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.25358452461208536, "se": 0.007858848899008085, "method": "bootstrap", "rep": 5}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.21380157631064423, "se": 0.00890050857344393, "method": "bootstrap", "rep": 5}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.19974397250549492, "se": 0.008913353191528363, "method": "bootstrap", "rep": 6}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.1575095884726041, "se": 0.008780376197109386, "method": "bootstrap", "rep": 6}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2329965629830454, "se": 0.008106668401642337, "method": "bootstrap", "rep": 6}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.2014527830035478, "se": 0.00897615269009547, "method": "bootstrap", "rep": 6}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.19892660070114587, "se": 0.008751671303459371, "method": "bootstrap", "rep": 7}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.15598493908134609, "se": 0.008754632560151717, "method": "bootstrap", "rep": 7}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.22757231689033314, "se": 0.007998626304863381, "method": "bootstrap", "rep": 7}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.1925455156695176, "se": 0.008633760722614703, "method": "bootstrap", "rep": 7}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.22307296701756876, "se": 0.008840840758643071, "method": "bootstrap", "rep": 8}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.18028340784031804, "se": 0.008633664210047475, "method": "bootstrap", "rep": 8}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.24730811286408375, "se": 0.007902135355926529, "method": "bootstrap", "rep": 8}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.2129744175581292, "se": 0.009061340262350902, "method": "bootstrap", "rep": 8}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.2129601162623937, "se": 0.008972544714984744, "method": "bootstrap", "rep": 9}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.17165180165462307, "se": 0.008937074444528981, "method": "bootstrap", "rep": 9}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.24099381765533426, "se": 0.008204736103614477, "method": "bootstrap", "rep": 9}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.21343684061472218, "se": 0.009405600923804412, "method": "bootstrap", "rep": 9}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.0021356754652816674, "se": 0.009496199340904336, "method": "marginals", "rep": 0}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.0021397049530860225, "se": 0.00949378038385042, "method": "marginals", "rep": 0}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.002161263804284266, "se": 0.009476102578795931, "method": "marginals", "rep": 0}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.0024372296780194765, "se": 0.009463048087854989, "method": "marginals", "rep": 0}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.014960162684758319, "se": 0.009189030735944275, "method": "marginals", "rep": 1}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.015049213334357908, "se": 0.009187699761520429, "method": "marginals", "rep": 1}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.015122460184744238, "se": 0.009180124387703114, "method": "marginals", "rep": 1}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.014829372174338148, "se": 0.009161271705206796, "method": "marginals", "rep": 1}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.022158952218473388, "se": 0.009243061766399295, "method": "marginals", "rep": 2}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.022117705072395882, "se": 0.009241848631851428, "method": "marginals", "rep": 2}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.02182750719362895, "se": 0.009243288783972552, "method": "marginals", "rep": 2}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.021331415908635243, "se": 0.00925357978959142, "method": "marginals", "rep": 2}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.005879212506537907, "se": 0.009275704677040145, "method": "marginals", "rep": 3}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.005896315363965898, "se": 0.009278116763129056, "method": "marginals", "rep": 3}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.006196328111764876, "se": 0.009266101204775437, "method": "marginals", "rep": 3}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.005888755442959401, "se": 0.009264395408496419, "method": "marginals", "rep": 3}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": 0.0014764127490278084, "se": 0.009355487995979373, "method": "marginals", "rep": 4}
+{"paper": "goldin", "spec": "time", "term": "female", "est": 0.0014629256318550513, "se": 0.009355185534395391, "method": "marginals", "rep": 4}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": 0.0015684309256050466, "se": 0.009349986395279782, "method": "marginals", "rep": 4}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": 0.001615653167578987, "se": 0.009339107451033966, "method": "marginals", "rep": 4}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": 0.0019209068780726979, "se": 0.00940923571366771, "method": "marginals", "rep": 5}
+{"paper": "goldin", "spec": "time", "term": "female", "est": 0.0019086081410070732, "se": 0.009408355270472171, "method": "marginals", "rep": 5}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": 0.001991561930894753, "se": 0.009375153556972228, "method": "marginals", "rep": 5}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": 0.0019299581415375064, "se": 0.009353526677775165, "method": "marginals", "rep": 5}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": 0.0008030939734061937, "se": 0.009276943843245934, "method": "marginals", "rep": 6}
+{"paper": "goldin", "spec": "time", "term": "female", "est": 0.0008172888004039577, "se": 0.009273166576308542, "method": "marginals", "rep": 6}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": 0.000746752653878649, "se": 0.009271308080254169, "method": "marginals", "rep": 6}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": 0.0002447252165882624, "se": 0.00925845915904534, "method": "marginals", "rep": 6}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.00789241177311037, "se": 0.009287015274508375, "method": "marginals", "rep": 7}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.0079438475480694, "se": 0.009285883707722759, "method": "marginals", "rep": 7}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.00785214906796023, "se": 0.009286312572432162, "method": "marginals", "rep": 7}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.008201996939447169, "se": 0.009260339004617639, "method": "marginals", "rep": 7}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": 6.0302772627238155e-05, "se": 0.00901865046222589, "method": "marginals", "rep": 8}
+{"paper": "goldin", "spec": "time", "term": "female", "est": 4.9168796227655465e-05, "se": 0.00901884440347241, "method": "marginals", "rep": 8}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": 0.0005878522303455203, "se": 0.009016137624624408, "method": "marginals", "rep": 8}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": 0.0006360420725248228, "se": 0.00900733997120352, "method": "marginals", "rep": 8}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.007084602645872462, "se": 0.009468238982501136, "method": "marginals", "rep": 9}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.007065098258956681, "se": 0.009466355005668354, "method": "marginals", "rep": 9}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.007257872436466974, "se": 0.009456216727122956, "method": "marginals", "rep": 9}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.007263552367822182, "se": 0.009445643713051297, "method": "marginals", "rep": 9}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.2239381810853945, "se": 0.009202701548354841, "method": "synthpop", "rep": 0}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.18202960812562297, "se": 0.009214803181513895, "method": "synthpop", "rep": 0}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.24962042323433772, "se": 0.008565088720104738, "method": "synthpop", "rep": 0}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.2193233686543433, "se": 0.009279439144465704, "method": "synthpop", "rep": 0}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.21002985529337576, "se": 0.008999104559943003, "method": "synthpop", "rep": 1}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.1663319911930003, "se": 0.008943716894468969, "method": "synthpop", "rep": 1}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2359900290723951, "se": 0.008249147445644735, "method": "synthpop", "rep": 1}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20157746200480087, "se": 0.008861686221059269, "method": "synthpop", "rep": 1}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.22110726377037976, "se": 0.00870442711025685, "method": "synthpop", "rep": 2}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.1802167427084294, "se": 0.008632840766696613, "method": "synthpop", "rep": 2}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.24279601118348135, "se": 0.008054741768034324, "method": "synthpop", "rep": 2}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.2128326592026361, "se": 0.009076111694432608, "method": "synthpop", "rep": 2}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.21966644195552143, "se": 0.008763505280158563, "method": "synthpop", "rep": 3}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.17486179650920497, "se": 0.008656653883530518, "method": "synthpop", "rep": 3}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2478474300100427, "se": 0.007995293932090586, "method": "synthpop", "rep": 3}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.22338911267426428, "se": 0.008605101010616718, "method": "synthpop", "rep": 3}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.19338601292960567, "se": 0.008966251368085612, "method": "synthpop", "rep": 4}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.1484017015602359, "se": 0.008959132274991085, "method": "synthpop", "rep": 4}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.21388756290875802, "se": 0.008343549929712478, "method": "synthpop", "rep": 4}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.19452663665170683, "se": 0.009277891997011591, "method": "synthpop", "rep": 4}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.2068912953035265, "se": 0.008983462876583546, "method": "synthpop", "rep": 5}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.16569832734813494, "se": 0.008896114771090702, "method": "synthpop", "rep": 5}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2341709361233858, "se": 0.008399861651439402, "method": "synthpop", "rep": 5}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20305879727978826, "se": 0.009504254907404669, "method": "synthpop", "rep": 5}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.20960629006701853, "se": 0.008787092830574602, "method": "synthpop", "rep": 6}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.16714609482525167, "se": 0.008854988156513859, "method": "synthpop", "rep": 6}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.23700319453323482, "se": 0.008065396993186424, "method": "synthpop", "rep": 6}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.19223820969892405, "se": 0.008593678227820298, "method": "synthpop", "rep": 6}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.2061410367807045, "se": 0.008763714602660523, "method": "synthpop", "rep": 7}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.16382955156606888, "se": 0.008680935835380012, "method": "synthpop", "rep": 7}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.2269865389911951, "se": 0.007931834940093653, "method": "synthpop", "rep": 7}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20102081181082582, "se": 0.008640797272137388, "method": "synthpop", "rep": 7}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.20918994398363436, "se": 0.009184641956172903, "method": "synthpop", "rep": 8}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.17270247572569475, "se": 0.009362768243259207, "method": "synthpop", "rep": 8}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.23777394999234924, "se": 0.008486679947647846, "method": "synthpop", "rep": 8}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20804463054617386, "se": 0.009992755886260358, "method": "synthpop", "rep": 8}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.20716564931512743, "se": 0.00897385373384067, "method": "synthpop", "rep": 9}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.16451619077380777, "se": 0.008846636496274516, "method": "synthpop", "rep": 9}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.23516738271650733, "se": 0.008209664066897448, "method": "synthpop", "rep": 9}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.20703018777324267, "se": 0.009213139565272616, "method": "synthpop", "rep": 9}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 0}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 0}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 0}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 0}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 1}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 1}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 1}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 1}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 2}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 2}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 2}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 2}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 3}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 3}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 3}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 3}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 4}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 4}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 4}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 4}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 5}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 5}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 5}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 5}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 6}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 6}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 6}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 6}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 7}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 7}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 7}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 7}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 8}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 8}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 8}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 8}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.1560603590196586, "se": 0.010844837112223569, "method": "copula", "rep": 9}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.12199023466978162, "se": 0.01066933553849477, "method": "copula", "rep": 9}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.163036531342156, "se": 0.010120396709260744, "method": "copula", "rep": 9}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.17702344271340167, "se": 0.009964318535946875, "method": "copula", "rep": 9}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09437677995443639, "se": 0.007527484841405342, "method": "original", "rep": 0}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13596397520956896, "se": 0.006950731106499066, "method": "original", "rep": 0}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09345185217864722, "se": 0.007528144555954003, "method": "bootstrap", "rep": 0}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13400873885823317, "se": 0.0069374329174721775, "method": "bootstrap", "rep": 0}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09654787193988254, "se": 0.007525910528253414, "method": "bootstrap", "rep": 1}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13954733743112066, "se": 0.0069043148100986435, "method": "bootstrap", "rep": 1}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.07493782462526709, "se": 0.007539973411214153, "method": "bootstrap", "rep": 2}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.11769646710511289, "se": 0.007014979374703977, "method": "bootstrap", "rep": 2}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09293737001061599, "se": 0.0075285086788889795, "method": "bootstrap", "rep": 3}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13155104978405407, "se": 0.006928267677660514, "method": "bootstrap", "rep": 3}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09933578770176171, "se": 0.007523835929879809, "method": "bootstrap", "rep": 4}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13825170108803828, "se": 0.006921199248974582, "method": "bootstrap", "rep": 4}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09274371775051761, "se": 0.007528645210342039, "method": "bootstrap", "rep": 5}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13124102583798827, "se": 0.0070030627428619, "method": "bootstrap", "rep": 5}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09526309577653079, "se": 0.007526846516112316, "method": "bootstrap", "rep": 6}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13873914728678896, "se": 0.006929423308683171, "method": "bootstrap", "rep": 6}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09136266040944173, "se": 0.00752961057464471, "method": "bootstrap", "rep": 7}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13251680127564516, "se": 0.006976608006060537, "method": "bootstrap", "rep": 7}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09142308848699077, "se": 0.007529568640753154, "method": "bootstrap", "rep": 8}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13207184029247607, "se": 0.006982933752635222, "method": "bootstrap", "rep": 8}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.08562770018114339, "se": 0.007533463155683756, "method": "bootstrap", "rep": 9}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.1292924727064032, "se": 0.0069597754936184, "method": "bootstrap", "rep": 9}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": -0.00455739859056817, "se": 0.007561155504177408, "method": "marginals", "rep": 0}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": -0.004954766424027892, "se": 0.007564466883546011, "method": "marginals", "rep": 0}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": -0.004435539828924376, "se": 0.007561159647277894, "method": "marginals", "rep": 1}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": -0.0044326894080461265, "se": 0.007565854882239575, "method": "marginals", "rep": 1}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.011926989004587621, "se": 0.007560696204062109, "method": "marginals", "rep": 2}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.012018374785807744, "se": 0.007563720208524676, "method": "marginals", "rep": 2}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": -0.014087324099853216, "se": 0.007560483716671646, "method": "marginals", "rep": 3}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": -0.01412941009425559, "se": 0.007566422361515206, "method": "marginals", "rep": 3}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0033863878838493126, "se": 0.007561190672739126, "method": "marginals", "rep": 4}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.0038558375041951487, "se": 0.007563641589957107, "method": "marginals", "rep": 4}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": -0.013536955221110893, "se": 0.0075605412009331786, "method": "marginals", "rep": 5}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": -0.013625781951902394, "se": 0.007563011319969531, "method": "marginals", "rep": 5}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": -0.009478065123615884, "se": 0.007560894393041415, "method": "marginals", "rep": 6}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": -0.009440113839337497, "se": 0.007564302432689329, "method": "marginals", "rep": 6}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.011295466073458285, "se": 0.007560751652490608, "method": "marginals", "rep": 7}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.011496705343691722, "se": 0.007562617722785709, "method": "marginals", "rep": 7}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0030723211769689038, "se": 0.007561198341630399, "method": "marginals", "rep": 8}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.0030083276876441993, "se": 0.007562970675323879, "method": "marginals", "rep": 8}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.011034946003454218, "se": 0.007560773647678714, "method": "marginals", "rep": 9}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.01085601099608503, "se": 0.007563080598281395, "method": "marginals", "rep": 9}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09708442734600305, "se": 0.007525515889184698, "method": "synthpop", "rep": 0}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.1388535669030163, "se": 0.006921728699451015, "method": "synthpop", "rep": 0}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09839824601363859, "se": 0.007524540246172096, "method": "synthpop", "rep": 1}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13826235500309966, "se": 0.006976580071401718, "method": "synthpop", "rep": 1}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0914857155782354, "se": 0.00752952515135718, "method": "synthpop", "rep": 2}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.1317688309827285, "se": 0.0069293045950204945, "method": "synthpop", "rep": 2}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09810356520813386, "se": 0.007524760228327559, "method": "synthpop", "rep": 3}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.14023931095522102, "se": 0.00697591809223284, "method": "synthpop", "rep": 3}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09521856328205282, "se": 0.007526878732107869, "method": "synthpop", "rep": 4}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.13618714879555766, "se": 0.006919703005915983, "method": "synthpop", "rep": 4}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09141601451225956, "se": 0.0075295735511629195, "method": "synthpop", "rep": 5}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.129222242697755, "se": 0.006933797776980494, "method": "synthpop", "rep": 5}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.08924025093637097, "se": 0.007531065681241082, "method": "synthpop", "rep": 6}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.1345360164188896, "se": 0.006965785407485663, "method": "synthpop", "rep": 6}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.09956089727871, "se": 0.007523665814932697, "method": "synthpop", "rep": 7}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.1426703106611537, "se": 0.006910130466875879, "method": "synthpop", "rep": 7}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.104127472074005, "se": 0.007520130853238183, "method": "synthpop", "rep": 8}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.14790848518058744, "se": 0.006915914028117219, "method": "synthpop", "rep": 8}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.11524359244190162, "se": 0.0075108554998904375, "method": "synthpop", "rep": 9}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.15619508681872674, "se": 0.006929258683190795, "method": "synthpop", "rep": 9}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 0}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 0}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 1}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 1}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 2}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 2}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 3}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 3}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 4}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 4}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 5}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 5}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 6}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 6}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 7}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 7}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 8}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 8}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.0681380093281159, "se": 0.007543661002369279, "method": "copula", "rep": 9}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.07651928185811338, "se": 0.0074267821769362155, "method": "copula", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.13849387132558744, "se": 0.10793269447962142, "method": "original", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.22252857939404103, "se": 0.13945349119811679, "method": "original", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.09055344995978136, "se": 0.02214127773436746, "method": "original", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.18422214060458042, "se": 0.11028040062299611, "method": "bootstrap", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.28932169597914104, "se": 0.14368795539384924, "method": "bootstrap", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.10309527158203098, "se": 0.030151508718275627, "method": "bootstrap", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.15847503390328935, "se": 0.1478510527203368, "method": "bootstrap", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.19972026328504072, "se": 0.14761367289885943, "method": "bootstrap", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.09255653717104197, "se": 0.018187798864304838, "method": "bootstrap", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.09729593728984368, "se": 0.14120872993483893, "method": "bootstrap", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.14650403097943288, "se": 0.104123177806597, "method": "bootstrap", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.08687916443369997, "se": 0.024113396676943236, "method": "bootstrap", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.20932141646177105, "se": 0.1085703492494393, "method": "bootstrap", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.24739695106916101, "se": 0.15503624419006856, "method": "bootstrap", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.11283783151110174, "se": 0.029583699586454234, "method": "bootstrap", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.13597330349842365, "se": 0.13938351816474404, "method": "bootstrap", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.25709196739540835, "se": 0.13964763906861627, "method": "bootstrap", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.09826898830980224, "se": 0.029838621724919603, "method": "bootstrap", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.1497396511951865, "se": 0.13934783928038716, "method": "bootstrap", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.16300649260398, "se": 0.12969212189557627, "method": "bootstrap", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.08252710425561427, "se": 0.030038940352990064, "method": "bootstrap", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.2853980779498931, "se": 0.12288578911009689, "method": "bootstrap", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.14162043298532595, "se": 0.15641373748702297, "method": "bootstrap", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.08492901546934417, "se": 0.030763154015959894, "method": "bootstrap", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.265421610554812, "se": 0.12865452364367053, "method": "bootstrap", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.19656735973514844, "se": 0.11083555506062312, "method": "bootstrap", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.11342846172988849, "se": 0.029563437350927858, "method": "bootstrap", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.2143129404177944, "se": 0.1196794513022639, "method": "bootstrap", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.34594549248611994, "se": 0.16308261183925118, "method": "bootstrap", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.12773669818571848, "se": 0.03585154650544145, "method": "bootstrap", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.11605713597919615, "se": 0.15045254924025941, "method": "bootstrap", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.10039642877232666, "se": 0.12550243809440748, "method": "bootstrap", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.06542266030655769, "se": 0.022960946894789096, "method": "bootstrap", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.03297995121070123, "se": 0.09615867266836353, "method": "marginals", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.045912906341648435, "se": 0.05794854817856053, "method": "marginals", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.00894103386406202, "se": 0.022291585897353194, "method": "marginals", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.0893812734409648, "se": 0.06347094756477728, "method": "marginals", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.05775438977792771, "se": 0.0701928287789628, "method": "marginals", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.016582278063977367, "se": 0.01694968091148165, "method": "marginals", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.05885521976659854, "se": 0.058366624928488896, "method": "marginals", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.02840713675190918, "se": 0.052437509766764784, "method": "marginals", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.028658978570699885, "se": 0.016131080559796354, "method": "marginals", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.10079653610952197, "se": 0.03661942656185269, "method": "marginals", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.11484457678601921, "se": 0.05917417095511578, "method": "marginals", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.013644702083244727, "se": 0.01664371108749306, "method": "marginals", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.039397965132602866, "se": 0.07244818848045831, "method": "marginals", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.08215618207919698, "se": 0.0648930207483342, "method": "marginals", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.016688613906414136, "se": 0.021448694449573185, "method": "marginals", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.018796762694170445, "se": 0.07998351920606368, "method": "marginals", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.0019181235360558047, "se": 0.09557187156686967, "method": "marginals", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.031387961182405485, "se": 0.020270819468055562, "method": "marginals", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.014795196130561548, "se": 0.05987459638714365, "method": "marginals", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.07929963984605445, "se": 0.050660064575041706, "method": "marginals", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.01295175683759776, "se": 0.015845960427810047, "method": "marginals", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.02161762320755877, "se": 0.06395000851484219, "method": "marginals", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.0965344801963295, "se": 0.09146214744698587, "method": "marginals", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.029733651899826737, "se": 0.0188448685822853, "method": "marginals", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.03195451770086842, "se": 0.0756407256893459, "method": "marginals", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.024210681777167568, "se": 0.06449058627009718, "method": "marginals", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.0004357527275661889, "se": 0.015901354647908702, "method": "marginals", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.07972722471523117, "se": 0.05541483818210582, "method": "marginals", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.07712023987113939, "se": 0.07772292576167994, "method": "marginals", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.001804755690434117, "se": 0.018688399249259885, "method": "marginals", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.15895422233566944, "se": 0.07561158538496345, "method": "synthpop", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.08821901815504643, "se": 0.06837453670791878, "method": "synthpop", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.006552980898853326, "se": 0.01999565730602163, "method": "synthpop", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.13367624209246667, "se": 0.06818997541883712, "method": "synthpop", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.1468487984337935, "se": 0.09136656959215857, "method": "synthpop", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.003050762464145953, "se": 0.021355330370829116, "method": "synthpop", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.1417427951873949, "se": 0.07179833892071012, "method": "synthpop", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.08042322865757556, "se": 0.11340043507283834, "method": "synthpop", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.005496091288143529, "se": 0.02057213064506072, "method": "synthpop", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.07462091352541253, "se": 0.05711107534448392, "method": "synthpop", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.28105787516912095, "se": 0.0746935789134592, "method": "synthpop", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.04415444864486333, "se": 0.022653327561081526, "method": "synthpop", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.07014880138845256, "se": 0.07315816947798014, "method": "synthpop", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.13762035005671136, "se": 0.09861183614745248, "method": "synthpop", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.02996769312571375, "se": 0.01588668845439919, "method": "synthpop", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.24067082647242952, "se": 0.07913008633414619, "method": "synthpop", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.0698618192718366, "se": 0.09738322426900957, "method": "synthpop", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.007277078747555334, "se": 0.017947130831567532, "method": "synthpop", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.2607301083015833, "se": 0.08021532782772722, "method": "synthpop", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.20676109133434065, "se": 0.06593629190071752, "method": "synthpop", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.016256064367431527, "se": 0.02322025930407714, "method": "synthpop", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.02158666673530789, "se": 0.07127141042982099, "method": "synthpop", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.15178778504576917, "se": 0.08093974268299187, "method": "synthpop", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.06484785138522436, "se": 0.023614326162500473, "method": "synthpop", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.012395693677100257, "se": 0.06497475947700262, "method": "synthpop", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.18556683666221357, "se": 0.06766953273020908, "method": "synthpop", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.05113399523615719, "se": 0.02360618663922301, "method": "synthpop", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.0532209820678596, "se": 0.07254973835516079, "method": "synthpop", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.09967381330107027, "se": 0.06945565940967979, "method": "synthpop", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female", "est": 0.017831267493475, "se": 0.023509304008237083, "method": "synthpop", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 2}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 3}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 4}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 5}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 6}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 7}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 8}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": -0.005757509370637608, "se": 0.07127605575093976, "method": "copula", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": -0.08957442852979962, "se": 0.10206649474577206, "method": "copula", "rep": 9}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.016617657623415702, "se": 0.027490225959355973, "method": "copula", "rep": 9}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.10813309072694167, "se": 0.005386529052791946, "method": "llm", "rep": 0}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.08618187422460542, "se": 0.005311330527038968, "method": "llm", "rep": 0}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.11991619400498466, "se": 0.004513052257943767, "method": "llm", "rep": 0}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.03831165615572711, "se": 0.003644614934710811, "method": "llm", "rep": 0}
+{"paper": "goldin", "spec": "basic", "term": "female", "est": -0.12310669965064444, "se": 0.005643135389802752, "method": "llm", "rep": 1}
+{"paper": "goldin", "spec": "time", "term": "female", "est": -0.10092614584843357, "se": 0.005575853286171812, "method": "llm", "rep": 1}
+{"paper": "goldin", "spec": "educ", "term": "female", "est": -0.12693098193525937, "se": 0.00491106706666626, "method": "llm", "rep": 1}
+{"paper": "goldin", "spec": "occ", "term": "female", "est": -0.036004348321520094, "se": 0.003898445593165973, "method": "llm", "rep": 1}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.10022739967995108, "se": 0.007523159859534389, "method": "llm", "rep": 0}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.12294652933598355, "se": 0.007202486853835513, "method": "llm", "rep": 0}
+{"paper": "glaeser", "spec": "col1", "term": "education", "est": 0.12130832149733237, "se": 0.007505393373159489, "method": "llm", "rep": 1}
+{"paper": "glaeser", "spec": "col2", "term": "education", "est": 0.1383361507984965, "se": 0.0073213522731214505, "method": "llm", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.37585748937019936, "se": 0.069329824184725, "method": "llm", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.29599705680684174, "se": 0.074209004234343, "method": "llm", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.052351779528729825, "se": 0.013926317466009357, "method": "llm", "rep": 0}
+{"paper": "sw", "spec": "col4", "term": "female trend", "est": 0.49823335535666313, "se": 0.081979327991105, "method": "llm", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "male trend", "est": 0.3629735786900875, "se": 0.05935765667315974, "method": "llm", "rep": 1}
+{"paper": "sw", "spec": "col4", "term": "female", "est": -0.062052659615536486, "se": 0.014945883696062685, "method": "llm", "rep": 1}

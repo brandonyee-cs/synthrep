@@ -1,0 +1,2 @@
+[{"formula": "np.log(wagp) ~ C(sex) + schl + age + I(age**2) + np.log(wkhp)", "terms": ["C(sex)[T.2]", "schl"]},
+ {"formula": "np.log(wagp) ~ C(sex) + schl + age + I(age**2) + np.log(wkhp) + C(occ)", "terms": ["C(sex)[T.2]"]}]

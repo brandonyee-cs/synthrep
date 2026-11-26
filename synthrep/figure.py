@@ -1,9 +1,3 @@
-"""Figure 1: coverage of the original estimate and SDV quality score, by synthetic file.
-
-  python -m synthrep.figure
-"""
-from __future__ import annotations
-
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -12,49 +6,51 @@ import pandas as pd
 from .data import ROOT
 
 D = ROOT / "synth_results"
-LABEL = {"bootstrap": "Resampled original data", "cart": "CART",
-         "copula": "Gaussian copula", "tvae": "TVAE", "ctgan": "CTGAN",
-         "ctgan300": "CTGAN, 300 epochs", "marginals": "Independent columns\n(no relationships)"}
-ORDER = ["bootstrap", "cart", "copula", "tvae", "ctgan", "ctgan300", "marginals"]
-INK, MUTED, GRID, SERIES, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#2a78d6", "#fcfcfb"
+LABEL = {"bootstrap": "Bootstrap of original data", "synthpop": "CART (synthpop)", "copula": "Gaussian copula",
+         "tvae300": "TVAE", "ctgan300": "CTGAN", "llm": "LLM", "marginals": "Independent columns"}
+ORDER = ["bootstrap", "synthpop", "copula", "tvae300", "ctgan300", "llm", "marginals"]
+INK, MUTED, GRID, COV, QUAL = "#1a1a1a", "#6b6b6b", "#e6e6e6", "#1f5fae", "#9a9a9a"
+
+plt.rcParams.update({"font.family": "serif", "font.serif": ["CMU Serif", "Latin Modern Roman", "Computer Modern Roman",
+                                                            "DejaVu Serif"],
+                     "mathtext.fontset": "cm", "font.size": 9, "axes.unicode_minus": False, "pdf.fonttype": 42})
 
 
 def main():
     m = pd.read_csv(D / "metrics.csv")
     f = pd.read_csv(D / "fidelity.csv")
-    cov = m.groupby("method").covers.mean()
-    q = f.groupby("method").sdv_quality.mean()
+    cov = m.groupby("method").covers.mean() * 100
+    q = f.groupby("method").sdv_quality.mean() * 100
     rows = [r for r in ORDER if r in cov.index and r in q.index]
-    y = range(len(rows))[::-1]
-    fig, axes = plt.subplots(1, 2, figsize=(9, 3.6), sharey=True, facecolor=SURF)
-    for ax, vals, title, ref in [
-        (axes[0], cov, "Synthetic 95% CI contains\nthe original estimate", 0.95),
-        (axes[1], q, "SDV quality score", None)]:
-        ax.set_facecolor(SURF)
-        v = [vals[r] for r in rows]
-        ax.hlines(list(y), 0, v, color=GRID, lw=2, zorder=1)
-        ax.scatter(v, list(y), s=70, color=SERIES, zorder=3, edgecolor=SURF, linewidth=2)
-        for yi, vi in zip(y, v):
-            ax.text(vi + 0.03, yi, f"{100 * vi:.0f}%", va="center", fontsize=9, color=INK)
-        if ref:
-            ax.axvline(ref, color=MUTED, lw=1, ls=(0, (3, 3)), zorder=0)
-            ax.text(ref - 0.02, len(rows) - 1.5, "nominal\n95%", ha="right", va="center", fontsize=8, color=MUTED)
-        ax.set_xlim(0, 1.12)
-        ax.set_xticks([0, .25, .5, .75, 1])
-        ax.set_xticklabels(["0%", "25%", "50%", "75%", "100%"], fontsize=8, color=MUTED)
-        ax.set_title(title, fontsize=10, color=INK, loc="left")
-        for s in ["top", "right", "left"]:
-            ax.spines[s].set_visible(False)
-        ax.spines["bottom"].set_color(GRID)
-        ax.tick_params(axis="y", length=0)
-        ax.tick_params(axis="x", color=GRID)
-    axes[0].set_yticks(list(y))
-    axes[0].set_yticklabels([LABEL[r] for r in rows], fontsize=9, color=INK)
-    fig.text(0.01, 0.01, "32 coefficients from 16 regressions on the GSS (1972-2024) and ACS (2022, Pennsylvania). "
-             "Quality score from the first synthetic file of each kind.", fontsize=7.5, color=MUTED)
-    fig.tight_layout(rect=(0, 0.04, 1, 1))
-    fig.savefig(D / "figure1.png", dpi=200, facecolor=SURF)
-    print("wrote", D / "figure1.png")
+    y = list(range(len(rows)))[::-1]
+    fig, ax = plt.subplots(figsize=(6.0, 2.25))
+    ax.axvline(95, color=MUTED, lw=0.8, ls=(0, (2, 2)), zorder=0)
+    ax.text(95, len(rows) - 0.35, "95%", ha="center", va="bottom", fontsize=8, color=MUTED)
+    for yi, r in zip(y, rows):
+        c, s = cov[r], q[r]
+        ax.plot([c, s], [yi, yi], color=GRID, lw=2.2, zorder=1, solid_capstyle="round")
+        ax.scatter(s, yi, s=34, facecolor="white", edgecolor=QUAL, linewidth=1.3, zorder=3)
+        ax.scatter(c, yi, s=34, color=COV, zorder=4)
+        ax.text(c - 2.2, yi, f"{c:.0f}", ha="right", va="center", fontsize=8, color=COV)
+    ax.set_yticks(y)
+    ax.set_yticklabels([LABEL[r] for r in rows], color=INK)
+    ax.set_xlim(-8, 103)
+    ax.set_ylim(-0.6, len(rows) - 0.1)
+    ax.set_xticks([0, 25, 50, 75, 100])
+    ax.set_xticklabels(["0%", "25%", "50%", "75%", "100%"], color=MUTED, fontsize=8)
+    for s in ["top", "right", "left"]:
+        ax.spines[s].set_visible(False)
+    ax.spines["bottom"].set_color("#bdbdbd")
+    ax.tick_params(axis="y", length=0, pad=4)
+    ax.tick_params(axis="x", color="#bdbdbd", length=3)
+    ax.scatter([], [], s=34, color=COV, label="Coverage of the original estimate")
+    ax.scatter([], [], s=34, facecolor="white", edgecolor=QUAL, linewidth=1.3, label="Quality score")
+    ax.legend(loc="lower center", bbox_to_anchor=(0.42, 1.04), ncol=2, frameon=False, fontsize=8.5,
+              handletextpad=0.3, columnspacing=1.6)
+    fig.tight_layout(pad=0.3)
+    for ext in ["pdf", "png"]:
+        fig.savefig(D / f"figure1.{ext}", dpi=300, bbox_inches="tight", pad_inches=0.02)
+    print("wrote", D / "figure1.pdf")
 
 
 if __name__ == "__main__":

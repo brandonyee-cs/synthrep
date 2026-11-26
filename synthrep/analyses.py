@@ -1,18 +1,3 @@
-"""Battery of published-style analyses. Each estimate is tagged with a coefficient TYPE, the
-unit of the main comparison:
-
-  main         : main-effect slope on a common variable (returns to schooling, gender gap)
-  nonlinear    : curvature term (age^2, experience^2)
-  interaction  : product term (female x education, Black x BA)
-  trend        : time/cohort slope or time x group (declining female happiness)
-  subgroup     : estimate within a subsample (gap among Asian workers; gap in the 2010s)
-  fe_adjusted  : coefficient after high-cardinality fixed effects (occupation, PUMA, year)
-
-All models are OLS (linear probability for binary outcomes) with HC1 robust SEs, unweighted.
-Derived variables are computed from raw columns AFTER synthesis.
-"""
-from __future__ import annotations
-
 import warnings
 
 import numpy as np
@@ -21,7 +6,6 @@ import statsmodels.formula.api as smf
 
 warnings.filterwarnings("ignore")
 
-# (model id, description, formula, subset function or None, {term: type})
 GSS_MODELS = [
     ("G1", "Family-income function", "lninc ~ educ + age + age2 + female + black + other + married", None,
      {"educ": "main", "female": "main", "black": "main", "married": "main", "age2": "nonlinear"}),
@@ -66,7 +50,6 @@ MODELS = {"gss": GSS_MODELS, "acs": ACS_MODELS}
 
 
 def derive(name: str, df: pd.DataFrame) -> tuple[pd.DataFrame, float]:
-    """Compute derived variables. Returns (data, share of rows dropped as invalid, e.g. income <= 0)."""
     d = df.copy()
     n0 = len(d)
     if name == "gss":
@@ -104,13 +87,17 @@ def run_battery(name: str, df: pd.DataFrame) -> list[dict]:
         try:
             if len(dd) < 30:
                 raise ValueError("too few rows")
-            fit = smf.ols(f, data=dd).fit(cov_type="HC1")
+            if "w" in dd.columns:
+                dd = dd[dd.w > 0]
+                fit = smf.wls(f, data=dd, weights=dd.w).fit(cov_type="HC1")
+            else:
+                fit = smf.ols(f, data=dd).fit(cov_type="HC1")
             for t, typ in terms.items():
                 ok = t in fit.params.index
                 out.append(dict(model=mid, desc=desc, term=t, type=typ, n=len(dd), dropped=dropped,
                                 est=float(fit.params[t]) if ok else np.nan,
                                 se=float(fit.bse[t]) if ok else np.nan))
-        except Exception as e:  # degenerate synthetic data (e.g. a category vanished)
+        except Exception as e:
             for t, typ in terms.items():
                 out.append(dict(model=mid, desc=desc, term=t, type=typ, n=len(dd), dropped=dropped,
                                 est=np.nan, se=np.nan, error=str(e)[:80]))

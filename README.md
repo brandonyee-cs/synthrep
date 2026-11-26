@@ -1,93 +1,77 @@
-# synthrep: Do regressions on synthetic data match the original?
+# synthrep
 
-Statistical agencies and data archives have begun to release synthetic copies of confidential
-microdata. This repository reruns 32 published-style regression coefficients on synthetic copies of the
-GSS and the ACS and checks whether they match the estimates from the original data, and whether the
-quality score that comes with the synthetic file shows the difference.
+Code and results for "Do Regressions on Synthetic Data Match the Original? Evidence from the GSS and the ACS" by Brandon Yee and Jacob Crainic. The extended abstract is in `paper/abstract.tex` and `paper/abstract.pdf`.
 
-Pilot for the Yale workshop *AI for Social Science Research Methods* (April 2027). Extended abstract:
-[`paper/abstract.tex`](paper/abstract.tex) (Markdown version: [`paper/abstract.md`](paper/abstract.md)).
+We make synthetic copies of two public surveys, rerun 32 regression coefficients of the kind found in published work on each copy, and check whether they match the estimates from the original data.
 
 ![Figure 1](synth_results/figure1.png)
 
+## Data
+
+- General Social Survey (GSS) cumulative file 1972-2024, release R3a (NORC): 62,472 respondents with no missing values on 12 variables.
+- 2022 American Community Survey (ACS) 1-year public-use file, Pennsylvania: 46,543 wage earners aged 25-64, 11 variables.
+
+`scripts/get_data.py` downloads both files. No login is needed and the raw data are not included here. If NORC has changed the GSS file since release R3a, results can differ slightly.
+
+## Methods
+
+| Name in code | Method | Files per survey |
+|---|---|---|
+| `bootstrap` | resample of the original rows (reference) | 10 |
+| `marginals` | each column resampled on its own, "independent columns" (reference) | 10 |
+| `synthpop` | sequential CART with the R package `synthpop` | 10 |
+| `copula` | Gaussian copula from the Synthetic Data Vault (SDV) | 10 |
+| `tvae300` | TVAE from SDV, 300 epochs | 3 |
+| `ctgan300` | CTGAN from SDV, 300 epochs | 3 |
+| `llm` | Gemini 2.5 Flash-Lite through OpenRouter, shown a codebook and 40 original rows per request | 3 |
+
+The regressions are 16 least-squares models with robust standard errors (`synthrep/analyses.py`). Derived variables are computed after synthesis. Further checks rebuild nine coefficients from three published papers (`synthrep/published.py`), use subsamples of 2,000 and 10,000 records (`synthrep/scale.py`), and refit with survey weights and design-based standard errors (`synthrep/extra.py`, `synthrep/design.py`).
+
+`synth_results/estimates.jsonl` and `summary.md` also hold three earlier runs that the paper does not report: `cart` (a Python CART), `tvae` (150 epochs) and `ctgan` (100 epochs).
+
 ## Results
-| synthetic file | CI contains original estimate | same significance as original | synthetic / original (median) | SDV quality score |
-|---|---|---|---|---|
-| bootstrap of original data | 96% | 97% | 1.00 | 99% |
-| CART | 67% | 93% | 1.00 | 99% |
-| Gaussian copula | 6% | 72% | 0.75 | 91% |
-| TVAE | 11% | 91% | 0.81 | 84% |
-| CTGAN (100 / 300 epochs) | 11% / 16% | 82% / 84% | 0.68 / 0.76 | 86% / 88% |
-| independent columns | 6% | 5% | 0.00 | 92% |
 
-1. The copula, CTGAN and TVAE files keep the significance of most coefficients, but their intervals rarely contain the original estimate.
-2. CART keeps effect sizes, but its intervals are too narrow: they contain the original estimate 67% of the time instead of 95%.
-3. The SDV quality score shows neither problem. It scores a file with no relationships between variables at 92%.
+| Synthetic file | Same significance as original | Coverage of original estimate | SDV quality score |
+|---|---|---|---|
+| Bootstrap of original data | 97% | 96% | 99% |
+| CART (`synthpop`) | 91% | 47% | 99% |
+| Gaussian copula | 72% | 6% | 91% |
+| TVAE | 93% | 15% | 83% |
+| CTGAN | 88% | 17% | 88% |
+| LLM | 83% | 6% | 87% |
+| Independent columns | 5% | 6% | 92% |
 
-Full tables: [`synth_results/summary.md`](synth_results/summary.md) and [`synth_results/fidelity.md`](synth_results/fidelity.md).
+Coverage is the share of synthetic 95% intervals that contain the original estimate, pooled over the 32 coefficients. Full tables are in `synth_results/summary.md`.
 
-## Design
-- **Data** (public, no registration):
-  - GSS cumulative file 1972–2024 (NORC; n = 62,472)
-  - 2022 ACS 1-year PUMS, Pennsylvania wage earners aged 25–64 (U.S. Census Bureau; n = 46,543)
-- **Synthesizers:**
-  - sequential CART
-  - Gaussian copula, CTGAN and TVAE (via [SDV](https://github.com/sdv-dev/SDV))
-  - comparison files: a bootstrap of the original data, and a file with each column resampled on its own
-- **Regressions:** 16 OLS models of the kind found in published work; 32 coefficients, grouped as main effects, squared terms, fixed-effects coefficients, trends, interactions and subgroup gaps. Derived variables are computed after synthesis.
-- **Measures:**
-  - whether the synthetic 95% CI contains the original estimate
-  - whether significance matches
-  - the ratio of the synthetic to the original estimate
-  - also: CI overlap (Karr et al. 2006), pooled-copies test (Raab, Nowok & Dibben 2016), SDV quality score, pMSE (Snoke et al. 2018)
+## Check your own synthetic files
+
+`synthrep/check.py` reports, for a list of regressions, the original estimate, the combined synthetic estimate, the coverage of single-file intervals, whether the combined interval contains the original estimate, and the pMSE ratio of each synthetic file.
+
+```bash
+python -m synthrep.check original.csv syn1.csv syn2.csv --spec regressions.json --out report.csv
+```
+
+`regressions.json` is a list such as `[{"formula": "y ~ x + C(g)", "terms": ["x"], "weights": "w"}]`; `weights` is optional. A worked example after `scripts/reproduce.sh` has run:
+
+```bash
+python -m synthrep.check data/csv/acs.csv data/sp/acs_0.csv data/sp/acs_1.csv --spec examples/acs_regressions.json
+```
 
 ## Reproduce
-Requires Python 3.12 and about 3 hours on 4 CPU cores. No GPU or API keys.
+
+This needs Python 3.12, R with `synthpop`, and several hours on a CPU. The LLM steps run only when `OPENROUTER_API_KEY` is set, and they cost money.
+
 ```bash
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt   # CPU torch: add --extra-index-url https://download.pytorch.org/whl/cpu
-bash scripts/reproduce.sh         # downloads data, synthesizes, analyzes, draws the figure
+pip install -r requirements.txt
+bash scripts/reproduce.sh
 ```
-Or step by step:
-```bash
-python scripts/get_data.py                                         # GSS + ACS downloads (no login)
-python -m synthrep.data                                            # analytic tables
-python -m synthrep.run --methods bootstrap,marginals,cart,copula --reps 10
-python -m synthrep.run --methods tvae,ctgan --reps 3 --procs 4     # ~1.5 h
-SYN_THREADS=2 python -m synthrep.run --methods ctgan300 --reps 1 --procs 2
-python -m synthrep.analyze && python -m synthrep.fidelity && python -m synthrep.figure
-```
-`synth_results/` ships with the pilot's outputs:
-- `estimates.jsonl`: every coefficient on every synthetic file
-- `real.jsonl`: estimates from the original data
-- `metrics.csv`, `combined.csv`, `fidelity.csv`: computed metrics
 
-`run.py` is resumable. Delete `synth_results/estimates.jsonl` to regenerate from scratch.
+`scripts/reproduce.sh` lists every step: download, synthesis, regressions, the checks, `synthrep.analyze` (writes `summary.md`, `metrics.csv`, `combined.csv`), the quality scores (`fidelity.csv`) and the figure. Each step skips results that are already in its `.jsonl` file in `synth_results/`, so delete that file to rerun the step from scratch. `synth_results/` holds the outputs used in the paper.
 
-The pilot used GSS release R3a (`gss7224_r3a.dta`). If NORC has since updated the file, results can differ slightly.
+## Data citations
 
-## Layout
-| Path | What |
-|---|---|
-| `synthrep/data.py` | builds the GSS and ACS analytic tables |
-| `synthrep/synth.py` | synthesizers (to add one, register a function in `SYNTHESIZERS`) |
-| `synthrep/analyses.py` | the 16 published-style models, with coefficients tagged by type |
-| `synthrep/run.py` | generates synthetic copies and runs the analysis battery |
-| `synthrep/analyze.py` | replication metrics → `synth_results/summary.md` |
-| `synthrep/fidelity.py` | quality scores vs replication → `synth_results/fidelity.md` |
-| `synthrep/figure.py` | `synth_results/figure1.png` |
-| `scripts/` | data download and full reproduction |
-| `paper/` | extended abstract (.tex and .md) |
+- Davern, M., Bautista, R., Freese, J., Herd, P., & Morgan, S. L. General Social Survey 1972-2024. NORC at the University of Chicago.
+- U.S. Census Bureau, American Community Survey 2022 1-year Public Use Microdata Sample.
 
-## Limitations
-1. **Training budget:** CTGAN and TVAE have 3 replicates each in the main run (100 and 150 epochs). A 300-epoch CTGAN check is included.
-2. **Approximate CART:** the CART synthesizer is a Python implementation of sequential CART with ordinal-coded categorical predictors, not R `synthpop` itself.
-3. **Unweighted analyses.** The original-data estimate is the target; its own sampling error is measured by the bootstrap file.
-
-## Data
-Raw data are not redistributed here; `scripts/get_data.py` fetches them from the original sources.
-- GSS: Davern, M., Bautista, R., Freese, J., Herd, P., & Morgan, S. L. General Social Survey 1972–2024. NORC at the University of Chicago. gss.norc.org.
-- ACS: U.S. Census Bureau, American Community Survey 2022 1-year Public Use Microdata Sample.
-
-## License
-Code: MIT (see `LICENSE`).
+Code: https://github.com/Nyxius-Labs/synthrep. License: MIT (see `LICENSE`).

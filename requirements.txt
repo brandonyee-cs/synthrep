@@ -8,3 +8,4 @@ sdv==2.2.0
 sdmetrics==0.33.0
 torch==2.15.0
 matplotlib==3.11.2
+openai==3.58.0

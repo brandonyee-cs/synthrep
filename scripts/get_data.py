@@ -1,10 +1,3 @@
-"""Download the two public datasets (no login) into data/.
-
-  GSS cumulative file 1972-2024 (NORC), Stata format
-  2022 ACS 1-year PUMS, Pennsylvania person file (U.S. Census Bureau)
-
-  python scripts/get_data.py
-"""
 import pathlib
 import urllib.request
 import zipfile

@@ -1,19 +1,3 @@
-"""Compare estimates on synthetic data with the same estimates on the real data.
-
-Per (dataset, synthesizer, replicate, coefficient):
-  overlap    : CI overlap (Karr et al. 2006): mean share of each 95% CI covered by the intersection, 0 if disjoint
-  zbias      : (b_syn - b_real) / se_real
-  sign_ok    : same sign
-  sig_ok     : same verdict at p<.05 (and same sign when both significant)
-  covers     : real estimate lies inside the synthetic 95% CI (what a user of the synthetic file would conclude)
-  se_ratio   : se_syn / se_real
-  failed     : the analysis could not be run (category vanished, too few rows, ...)
-Bootstrap resamples of the real data give the reference level expected from sampling noise alone.
-
-  python -m synthrep.analyze
-"""
-from __future__ import annotations
-
 import argparse
 import json
 import pathlib
@@ -23,7 +7,7 @@ import pandas as pd
 
 from .data import ROOT
 
-ORDER = ["bootstrap", "cart", "copula", "tvae", "ctgan", "ctgan300", "marginals"]
+ORDER = ["bootstrap", "synthpop", "cart", "copula", "tvae", "tvae300", "ctgan", "ctgan300", "llm", "marginals"]
 TYPES = ["main", "nonlinear", "fe_adjusted", "trend", "interaction", "subgroup"]
 Z = 1.959964
 
@@ -42,9 +26,7 @@ def metrics(df: pd.DataFrame, real: pd.DataFrame) -> pd.DataFrame:
     m["sig_ok"] = (sig_r == sig_s) & (~(sig_r & sig_s) | m.sign_ok)
     m["covers"] = (m.est_r >= ls) & (m.est_r <= us)
     m["se_ratio"] = m.se / m.se_r
-    # failed analyses count as non-replication
-    for c in ["overlap"]:
-        m.loc[m.failed, c] = 0.0
+    m.loc[m.failed, "overlap"] = 0.0
     for c in ["sign_ok", "sig_ok", "covers"]:
         m.loc[m.failed, c] = False
     return m
@@ -109,9 +91,6 @@ def main():
                      f"{pct(g.sign_ok.mean())} | {g.se_ratio.median():.2f} | {pct(g.failed.mean())} | "
                      f"{pct(g.drop_duplicates(['rep']).dropped.mean())} |")
 
-    # Combining m synthetic copies (Raab, Nowok & Dibben 2016). Under a correct synthesis model,
-    # qbar_m - q_real ~ N(0, ubar/m), so z = (qbar_m - q_real) / sqrt(ubar/m) should exceed 1.96 in 5% of
-    # coefficients. Larger rates mean the synthesizer distorts that coefficient beyond synthesis noise.
     ok = m[~m.failed]
     comb = ok.groupby(["dataset", "method", "model", "term", "type"]).agg(
         qbar=("est", "mean"), ubar=("se", lambda s: np.mean(s ** 2)), k=("est", "size"),
@@ -131,8 +110,7 @@ def main():
           "|---|---|---|" + "---|" * len(det.columns)]
     for (ds, mod, term, typ), row in det.iterrows():
         rr = r.loc[(ds, mod, term)]
-        desc = rr.desc
-        L.append(f"| {ds}/{mod} {term} ({desc}) | {typ} | {rr.est:.3f} ({rr.se:.3f}) | " +
+        L.append(f"| {ds}/{mod} {term} ({rr.desc}) | {typ} | {rr.est:.3f} ({rr.se:.3f}) | " +
                  " | ".join(f"{v:.2f}" for v in row.values) + " |")
     (d / "summary.md").write_text("\n".join(L) + "\n")
     print("\n".join(L))

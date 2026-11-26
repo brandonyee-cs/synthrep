@@ -1,18 +1,26 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
+\documentclass[10pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{titlesec}
+\titleformat{\section}{\normalsize\bfseries}{\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{0.9em}{0.3em}
+\titleformat{\subsection}{\normalsize\itshape}{\thesubsection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{0.6em}{0.2em}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,skip=4pt}
 \usepackage[round]{natbib}
 \usepackage[hidelinks]{hyperref}
-\setlength{\parskip}{4pt}
+\setlength{\parskip}{0.15em}
 \setlength{\parindent}{0pt}
 
 \title{\vspace{-1.5em}Do Regressions on Synthetic Data Match the Original?\\Evidence from the GSS and the ACS}
-\author{Nyx(ius) Labs}
-\date{Extended abstract, AI for Social Science Research Methods, Yale University, April 2027}
+\author{Brandon Yee \qquad Jacob Crainic}
+\date{\vspace{-1em}}
 
 \begin{document}
 \maketitle
@@ -20,168 +28,188 @@
 
 \begin{abstract}
 \noindent Statistical agencies and data archives have begun to release synthetic copies of confidential
-microdata. We ask whether regressions run on such files give the answer the original data would have
-given. We made synthetic copies of the General Social Survey and the American Community Survey with four
-common synthesizers and re-estimated 32 published-style coefficients. Three synthesizers kept the sign
-and significance of most coefficients but not their size. The fourth kept sizes on average, but its
-confidence intervals were too narrow. The quality score of a popular synthesis package revealed neither
-problem.
+microdata, and we ask how often a regression run on such a copy gives the answer the original data would
+have given. We made synthetic copies of the General Social Survey and the American Community Survey with
+five methods, including the tree-based method that agencies use and a large language model, and
+re-estimated 32 coefficients of the kind found in published work. Most methods kept the significance of
+most coefficients but changed their size, most often toward zero, so their 95\% intervals rarely
+contained the original estimate.
+The tree-based method came closest, yet its intervals contained the original estimate in fewer than half
+of cases. The tree-based method also came closest for nine coefficients from three published papers and for
+samples of 2,000 records, and a popular package's quality score did not reveal the low coverage.
 \end{abstract}
 
 \section{Introduction}
-Confidential microdata are hard to obtain. One response is to release synthetic data: a model learns the
-joint distribution of the original records, and the agency publishes new records drawn from that model
-\citep{reiter2005}. The U.S.\ Census Bureau has released synthetic versions of the Survey of Income and
-Program Participation and the Longitudinal Business Database \citep{benedetto2013, kinney2011}, and
-open-source packages now let any researcher make a synthetic copy of a restricted file
-\citep{nowok2016, patki2016}.
+Synthetic data let agencies share confidential microdata without releasing any person's actual record: a
+statistical model learns how the variables in the original file are distributed and related, and the
+agency publishes new records drawn from that model \citep{raghunathan2003, reiter2005}. The Census
+Bureau has released synthetic versions of two of its files \citep{benedetto2013, kinney2011}, open-source
+packages let any researcher make a synthetic copy of a restricted file \citep{nowok2016, patki2016}, and large language
+models (LLMs) can write new records after seeing a few from the original file \citep{seedat2024}.
 
-A researcher who receives a synthetic file will run the regression they would have run on the original.
-For them, the useful question is narrow: will the coefficient and its confidence interval match what the
-original data would have given? Following \citet{nowok2016}, we take the estimate from the original
-data as the target, not the population value.
+A researcher who receives such a file will run the regression they would have run on the original, so
+what matters to them is how often the synthetic coefficient and its 95\% interval agree with the ones the
+original data give. Following \citet{nowok2016}, we therefore compare each synthetic estimate with the
+estimate from the original data rather than with an unknown population value. Earlier studies compared
+synthetic and original confidence intervals for a few methods \citep{karr2006, drechsler2011} and asked
+whether published findings hold on synthetic data that carry formal privacy protection
+\citep{rosenblatt2023}; \citet{drechsler2024} review this work. We run the same comparison on two large
+surveys, and on regressions rebuilt from three published papers, for five synthesis methods, one of them an LLM.
 
-Data releasers usually describe a synthetic file with general similarity scores. These compare the
-distribution of each variable and of each pair of variables in the synthetic and original files
-\citep{snoke2018}. A regression depends on more than pairs. It depends on relationships that hold after
-conditioning on other variables, on interactions, and on small groups. A file can match every pair of
-variables and still change a regression. We test how often this happens in practice.
-
-Section 3 reports three results in turn: most synthesizers keep significance but shrink effects; the
-one that keeps effect sizes gives intervals that are too narrow; and the similarity score warns of
-neither.
+Releasers usually describe a synthetic file with a quality score that averages how well it matches
+each variable and each pair of variables \citep{patki2016}. Because a coefficient depends on
+several variables at once, a file can match every pair and still change the coefficients, so we also
+compare this score with coverage.
 
 \section{Data and methods}
-\textbf{Data.} We use two public surveys and treat each as if it were confidential. The General Social
-Survey (GSS) cumulative file covers 1972--2024 (62,472 respondents, 12 variables). The 2022 American
-Community Survey (ACS) public-use file gives us Pennsylvania wage earners aged 25--64 (46,543 workers, 11
-variables). The two differ in shape. The GSS is a long series of cross-sections in which time matters;
-the ACS is one large year with many-valued variables such as 95 local areas and 23 occupation groups.
+\textbf{Data.} We treat two public surveys as if they were confidential, and from the General
+Social Survey (GSS) cumulative file for 1972--2024 we keep the 62,472 respondents with no missing values
+on 12 variables. From the 2022 American Community Survey (ACS) public-use file we keep the 46,543
+Pennsylvania wage earners aged 25--64, with 11 variables that include 95 local areas and 22 occupation
+groups.
 
-\textbf{Synthesizers.} We use sequential CART \citep{reiter2005}, the default in the R package
-\texttt{synthpop}, and three synthesizers from the Synthetic Data Vault \citep{patki2016}: a Gaussian
-copula and the neural-network models CTGAN and TVAE \citep{xu2019}, with package defaults except for
-training length. We add two comparison files. A bootstrap resample of
-the original data shows how far estimates move from sampling noise alone. A file in which each column
-is resampled on its own keeps every variable's distribution but no relationships between variables, a
-standard baseline in this literature \citep{raab2017, stadler2022}. We draw ten files per synthesizer
-and survey. CTGAN and TVAE train slowly on a CPU, so they get three files each, plus one CTGAN file per
-survey trained for its default 300 epochs.
+\textbf{Synthesis methods.} The first method, sequential CART (classification and regression trees) \citep{reiter2005}, builds each variable in
+turn from decision trees fitted to the variables before it; it is the default in the R package
+\texttt{synthpop}, which we run with its defaults except that, to make it finish, survey year enters as a number and occupation does not predict local area. From the Synthetic Data Vault \citep{patki2016}
+we take a Gaussian copula with truncated-normal margins, which keeps the correlations between
+variables. We also take two neural networks, a conditional GAN (CTGAN) and a variational autoencoder (TVAE) \citep{xu2019}, trained for their default of 300 passes over the data. Each of these four methods fits one model to the
+original data and then draws all new records from it. The fifth method is the low-cost LLM setup a researcher
+might try first, following \citet{seedat2024} without their filtering step: each request shows the LLM Gemini 2.5 Flash-Lite a short codebook and 40
+records drawn at random from the original data and asks for 100 new records, and we drop records with
+values outside the codebook. Two reference files mark the range of possible results: a bootstrap
+resample of the original data shows how far estimates move from sampling noise alone, while a file in which each
+column is resampled on its own keeps every variable's distribution but no relationship between variables
+\citep{raab2017}. For each survey we make ten files for CART, the copula and these two reference files,
+and three for CTGAN, TVAE and the LLM, which take longer or cost money to run.
 
-\textbf{Regressions.} We fit 16 OLS regressions of the kind found in published work and follow 32
-coefficients: main effects such as the return to schooling, squared terms, coefficients after fixed
-effects, trends such as the decline in women's happiness \citep{stevenson2009}, interactions, and gaps
-within small groups. Logs, squares and indicators are computed after synthesis, as a user would compute
-them.
+\textbf{Regressions.} We fit 16 least-squares regressions with robust standard errors and follow 32
+coefficients, 17 in the GSS and 15 in the ACS. They include main effects such as the return to
+schooling, squared terms, coefficients from models with occupation, area or year fixed effects, trends
+such as the decline in women's happiness \citep{stevenson2009}, interactions, and differences within
+small subgroups. As a user of a synthetic file would, we compute logs, squares and indicators after
+synthesis.
 
-\textbf{Measures.} For each coefficient and each synthetic file, we ask whether the synthetic 95\%
-confidence interval contains the original estimate. If the synthesizer reproduced the original
-distribution, this should happen close to 95\% of the time \citep{nowok2016}; the bootstrap file checks
-this. We also record whether significance at the 5\% level matches the original, and the ratio of the
-synthetic estimate to the original one.
+\textbf{Published regressions.} Because we chose these 32 coefficients ourselves, we also rebuild three
+published specifications on our files: the gender gap in log earnings among full-time workers in four
+nested models of \citet[Table 1]{goldin2014}, with 23 occupation groups in place of detailed codes; the
+effect of education on religious attendance in \citet[Table I]{glaeser2008}; and the gender gap in the
+trend in happiness in \citet[Table 1]{stevenson2009}, without their adjustment for question order. Each gets
+its own file of the 3 to 9 variables it uses, synthesized with every method except CTGAN and TVAE.
+
+\textbf{Measures.} For each coefficient and method we record the share of synthetic 95\%
+intervals that contain the original estimate, which we call coverage. We also record agreement in
+significance at the 5\% level, the ratio of the synthetic to the original estimate, and the distance
+between the two estimates in original standard errors. Because the original standard errors are small at
+these sample sizes, we also report the share of synthetic estimates within 10\% of the original one,
+which depends far less on sample size than coverage does. A correct model (one matching the process that made the data) gives coverage of about 95\%, or
+83\% if its parameters are redrawn for each file \citep{raab2016}.
 
 \section{Results}
-\subsection{Significance survives, size does not}
-Table~\ref{tab:main} gives the results for each synthesizer. The bootstrap file behaves as it should: its
-intervals contain the original estimate 96\% of the time. The copula, CTGAN and TVAE files keep the
-significance of 72--91\% of coefficients, but their intervals contain the original estimate only
-6--16\% of the time. The estimates are pulled toward zero: main effects shrink to between two-thirds
-and four-fifths of their original size.
+\subsection{Shrinkage toward zero}
+Table~\ref{tab:main} shows that the bootstrap file covers the original estimate 96\% of the time, as it
+should, while every synthesis method falls below even 83\%. The copula,
+CTGAN, TVAE and LLM files keep the significance of 72--93\% of coefficients, but their coverage is only
+6--17\%, because their estimates lie 6 to 19 original standard errors away from the original ones. Main
+effects, squared terms and fixed-effects coefficients shrink to a median 0.67--0.85 of their original size.
 
-\begin{table}[h]
-\centering\small
-\begin{tabular}{lccc}
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabular}{lccccc}
 \toprule
- & Same significance & CI contains & Synthetic / original \\
-Synthetic file & as original & original estimate & (median) \\
+ & Same significance & & Within 10\% & Synthetic / original & Distance in original \\
+Synthetic file & as original & Coverage & of original & (median) & SEs (median) \\
 \midrule
-Bootstrap of original data   & 97\% & 96\% & 1.00 \\
-CART                         & 93\% & 67\% & 1.00 \\
-Gaussian copula              & 72\% &  6\% & 0.75 \\
-TVAE                         & 91\% & 11\% & 0.81 \\
-CTGAN (100 / 300 epochs)     & 82\% / 84\% & 11\% / 16\% & 0.68 / 0.76 \\
-Independent columns          &  5\% &  6\% & 0.00 \\
+Bootstrap of original data   & 97\% & 96\% & 80\% & 1.00 & 0.7 \\
+CART (\texttt{synthpop})     & 91\% & 47\% & 50\% & 0.95 & 2.3 \\
+Gaussian copula              & 72\% &  6\% &  9\% & 0.75 & 7.8 \\
+TVAE                         & 93\% & 15\% &  7\% & 0.68 & 10.6 \\
+CTGAN                        & 88\% & 17\% & 18\% & 0.85 & 6.2 \\
+LLM                          & 83\% &  6\% &  7\% & 0.67 & 18.5 \\
+Independent columns          &  5\% &  6\% &  0\% & 0.00 & 28.0 \\
 \bottomrule
 \end{tabular}
-\caption{Results by synthetic file, pooled over 32 coefficients and both surveys. The last column uses
-main effects, squared terms and fixed-effects coefficients.}
+\caption{Results by method, pooled over the 32 coefficients of both surveys. Coverage is the
+share of synthetic 95\% intervals that contain the original estimate. The ratio uses main effects,
+squared terms and fixed-effects coefficients.}
 \label{tab:main}
 \end{table}
 
-The shrinkage has a simple cause. When a synthesizer fails to learn how two variables depend on each
-other, it generates them as if they were closer to independent, and regression coefficients move toward
-zero \citep{reiter2005, kinney2011}. The extreme case is marital status in the copula files. In the
-original GSS, married respondents report 0.67 more log family income than unmarried ones with the same
-education, age, sex and race; in the copula files the gap is 0.00.
+In the copula files, for example, the gap in log family income between married and unmarried GSS
+respondents with the same education, age, sex and race falls from 0.67 to 0.00. Since significance usually remains after this shrinkage, a user who
+checks only that results remain significant would accept most of these files.
 
-Because significance usually survives, a researcher who checks only whether results remain significant, a check that \citet{karr2006} proposed, would accept most of these files.
+\subsection{The LLM}
+The LLM files move estimates the furthest and in both directions, and most differences between groups shrink sharply, so that the income gap between women
+and men falls to a tenth of its original size in the GSS and to a fifth in the ACS once occupation is
+held fixed. In the other direction, the links from income and from religious attendance to happiness
+are three to five times too strong, and the year trend in happiness and the cohort trend in attendance reverse.
 
-\subsection{CART keeps effect sizes, but its intervals are too narrow}
-CART is the exception in Table~\ref{tab:main}. Its estimates are centered on the original ones, with a
-median ratio of 1.00. Its intervals, however, are as narrow as those from the original data, while its
-estimates scatter more widely around the original values. As a result, the intervals contain the
-original estimate in 67\% of cases rather than 95\%, and in only half of the coefficients estimated with
-fixed effects.
+\subsection{CART}
+CART comes closest, with a median ratio of 0.95 and intervals as wide as those from the original data.
+Its coverage is still only 47\% (63\% in the GSS and 28\% in the ACS) and 16\% for coefficients
+from models with fixed effects, while the other methods stay below 30\% in each survey. Chance in a single file does not explain the misses,
+because combining the ten CART files does not remove them: when we average the files and compute the
+variance of that average with the formula of \citet{raab2016}, the combined interval contains the
+original estimate for only 19\% of coefficients, against 95\% expected from a correct model.
 
-One synthetic file is a single random draw, so part of this gap could be noise. To check, we pooled the
-ten CART files with the combining rule of \citet{raab2016}. If the synthesizer were correct, the pooled
-estimate would differ from the original by more than synthesis noise in about 5\% of coefficients. It
-does so in 62\%. The gap comes from the synthesis model, not from the luck of one draw.
+\subsection{Published regressions}
+On the nine published coefficients the order is the same: coverage is 96\% for the bootstrap, 74\% for CART,
+22\% for the LLM and 11\% for the copula. CART reproduces the two simpler papers, with 90\% coverage
+for each, but not the happiness trends of \citet{stevenson2009}, where its trend for women has the wrong
+sign on average. The LLM halves the earnings gap of \citet{goldin2014}, and cuts it to a fifth once
+occupation is held fixed, and it reverses the happiness gap between women and men although its
+effect of education on attendance stays close to the original.
 
-\subsection{The quality score does not warn the user}
-Figure~\ref{fig:score} places the result from Table~\ref{tab:main} next to the quality score that SDV
-reports. This score averages how well single-variable distributions and pairwise relationships match.
-It gives CART 99\% and every other synthesizer 84\% or more. It gives 92\% to the file with independent
-columns, which is higher than CTGAN and TVAE, even though no regression on that file reproduces. A score
-built from pairs cannot see relationships that depend on a third variable. The propensity-score measure
-of \citet{snoke2018} ranks the files better, but it also does not say whether a particular regression
-will reproduce.
+\subsection{The quality score}
+Figure~\ref{fig:score} plots coverage against the quality score that the Synthetic Data Vault reports for one file per survey. The
+score gives CART 99\% and every other method 83--92\%, including 92\% for the file with independent
+columns, whose coverage is 6\%. The reason is that the part of the score for pairs of variables falls only from 99\% for the bootstrap
+file, which keeps every relationship, to 83--85\% for the file with independent columns, which keeps none. The propensity-score ratio of \citet{snoke2018}, which measures how well
+a classifier tells synthetic from original records, does better (1 means indistinguishable; 0.7 for the bootstrap, 1.8--2.1 for CART,
+above 45 for the rest), but it does not rank the methods below CART either.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{figure1.png}
-\caption{Share of synthetic confidence intervals that contain the original estimate (left) and SDV
-quality score (right), by synthetic file.}
+\includegraphics[width=0.72\textwidth]{figure1.pdf}
+\caption{Coverage of the original estimate (filled) and the quality score reported by the Synthetic Data Vault (open), by method, with coverage pooled over the 32 coefficients and the score from one file per survey. The dotted line marks the 95\% coverage of a correct model.}
 \label{fig:score}
 \end{figure}
 
 \section{Checks and limits}
-\textbf{Sampling noise in the original estimate.} The original estimate has its own sampling error. The
-bootstrap file shows that, with no synthesis at all, intervals contain the original estimate 96\% of the
-time, so the shortfalls above come from synthesis.
+\textbf{Sample size.} On five random subsamples of 2,000 and of 10,000 records per survey, each compared
+with its own original estimates, coverage rises as samples shrink and CART stays second to the bootstrap: at 2,000
+records (CTGAN and TVAE with fewer passes) the bootstrap covers 93\%, CART 72\%, the copula 52\%, CTGAN, TVAE and the LLM 22--32\%, and
+the file with independent columns 22\%.
 
-\textbf{Training length.} Training CTGAN for its default 300 epochs instead of 100 raises coverage only
-from 11\% to 16\%.
+\textbf{Survey weights.} We also refit every regression with the survey weight, which we synthesize as
+one more variable, for CART, the copula and the two reference files (five files each). Coverage is then
+96\% for the bootstrap, 69\% for CART and 12\% for the copula, higher than without weights because
+weighting makes standard errors about a third larger. Design-based standard errors, from the ACS replicate weights and
+the GSS strata and sampling units, are close to these (median ratio 0.92 and 1.02), and rescaling
+synthetic intervals by that ratio leaves CART at 63\% and the copula at 12\%.
 
-\textbf{Choice of regressions.} We chose models typical of published work, as \citet{karr2006}
-recommend. A check can favor a synthesizer whose model resembles the analysis \citep{snoke2018}; our
-regressions condition on variables in ways tree splits capture well, which may help CART.
-
-\textbf{Two surveys.} The GSS and ACS differ in shape, and the pattern holds in both: CART's intervals
-contain the original estimate 79\% of the time in the GSS and 54\% in the ACS, and the other synthesizers
-stay below 20\% in each. Two surveys cannot settle the question, and we plan to add more.
-
-\textbf{Implementation and privacy.} Our CART synthesizer is a Python version of the \texttt{synthpop}
-method that codes categories as ordered numbers; we will rerun it with \texttt{synthpop} itself. None of
-the files adds formal privacy protection, which generally lowers accuracy \citep{stadler2022}, so our
-results describe the best these synthesizers can do.
+\textbf{Privacy.} No file adds formal privacy protection, which usually lowers accuracy
+\citep{stadler2022}, and an agency could not send confidential records to a commercial LLM.
 
 \section{Conclusion}
-For the regressions social scientists publish, a synthetic file can keep significance while changing
-effect sizes, or keep effect sizes while giving intervals that are too narrow. The similarity score that
-comes with the file does not show either problem. We suggest that releasers state a set of standard
-regressions for each file and report how often their intervals contain the original estimates, so that
-users can see what the file supports. Before the workshop we will add synthesizers with formal privacy
-protection, more surveys, published replication files, and survey weights. Code and results:
-\url{https://github.com/brandonyee-cs/synthrep}.
-
-\smallskip
-\textit{Requested format:} lightning talk or talk; poster acceptable.
+Since the quality score does not reveal how often regressions miss, releasers should name standard
+regressions for each synthetic file and report their coverage. Our code includes a function that
+reports coverage and the propensity-score ratio for any list of regressions:
+\url{https://github.com/Nyxius-Labs/synthrep}.
 
 \begingroup\footnotesize
-\begin{thebibliography}{13}\setlength{\itemsep}{0pt}
+\begin{thebibliography}{19}\setlength{\itemsep}{0pt}
 \bibitem[Benedetto et~al.(2013)]{benedetto2013} Benedetto, G., Stinson, M., \& Abowd, J.\,M. (2013). The
   creation and use of the SIPP Synthetic Beta. U.S.\ Census Bureau working paper.
+\bibitem[Drechsler \& Haensch(2024)]{drechsler2024} Drechsler, J., \& Haensch, A.-C. (2024). 30 years of
+  synthetic data. \emph{Statistical Science}, 39(2), 221--242.
+\bibitem[Drechsler \& Reiter(2011)]{drechsler2011} Drechsler, J., \& Reiter, J.\,P. (2011). An empirical
+  evaluation of easily implemented, nonparametric methods for generating synthetic datasets.
+  \emph{Computational Statistics \& Data Analysis}, 55(12), 3232--3243.
+\bibitem[Glaeser \& Sacerdote(2008)]{glaeser2008} Glaeser, E.\,L., \& Sacerdote, B. (2008). Education and
+  religion. \emph{Journal of Human Capital}, 2(2), 188--215.
+\bibitem[Goldin(2014)]{goldin2014} Goldin, C. (2014). A grand gender convergence: Its last chapter.
+  \emph{American Economic Review}, 104(4), 1091--1119.
 \bibitem[Karr et~al.(2006)]{karr2006} Karr, A.\,F., Kohnen, C.\,N., Oganian, A., Reiter, J.\,P., \&
   Sanil, A.\,P. (2006). A framework for evaluating the utility of data altered to protect confidentiality.
   \emph{The American Statistician}, 60(3), 224--232.
@@ -196,8 +224,18 @@ protection, more surveys, published replication files, and survey weights. Code 
   synthesis for large samples. \emph{Journal of Privacy and Confidentiality}, 7(3), 67--97.
 \bibitem[Raab et~al.(2017)]{raab2017} Raab, G.\,M., Nowok, B., \& Dibben, C. (2017). Guidelines for
   producing useful synthetic data. arXiv:1712.04078.
+\bibitem[Raghunathan et~al.(2003)]{raghunathan2003} Raghunathan, T.\,E., Reiter, J.\,P., \& Rubin, D.\,B.
+  (2003). Multiple imputation for statistical disclosure limitation. \emph{Journal of Official
+  Statistics}, 19(1), 1--16.
 \bibitem[Reiter(2005)]{reiter2005} Reiter, J.\,P. (2005). Using CART to generate partially synthetic public
   use microdata. \emph{Journal of Official Statistics}, 21(3), 441--462.
+\bibitem[Rosenblatt et~al.(2023)]{rosenblatt2023} Rosenblatt, L., Herman, B., Holovenko, A., Lee, W.,
+  Loftus, J., McKinnie, E., Rumezhak, T., Stadnik, A., Howe, B., \& Stoyanovich, J. (2023). Epistemic
+  parity: Reproducibility as an evaluation metric for differential privacy. \emph{Proceedings of the VLDB
+  Endowment}, 16(11), 3178--3191.
+\bibitem[Seedat et~al.(2024)]{seedat2024} Seedat, N., Huynh, N., van Breugel, B., \& van der Schaar, M.
+  (2024). Curated LLM: Synergy of LLMs and data curation for tabular augmentation in low-data regimes.
+  \emph{International Conference on Machine Learning}.
 \bibitem[Snoke et~al.(2018)]{snoke2018} Snoke, J., Raab, G.\,M., Nowok, B., Dibben, C., \& Slavkovi\'c, A.
   (2018). General and specific utility measures for synthetic data. \emph{Journal of the Royal
   Statistical Society: Series A}, 181(3), 663--688.

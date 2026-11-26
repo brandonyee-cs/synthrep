@@ -1,18 +1,3 @@
-"""Do generic fidelity scores predict whether published analyses replicate?
-
-For the saved replicate-0 synthetic file of each synthesizer, compute:
-  sdv_quality : SDV's Quality Report overall score (column shapes + pair trends), the number
-                practitioners typically look at
-  pmse_ratio  : propensity-score MSE ratio (Snoke et al. 2018), CART discriminator; 1 = indistinguishable
-Then set them beside analysis-specific validity from metrics.csv.
-
-  python -m synthrep.fidelity
-"""
-from __future__ import annotations
-
-import json
-import pathlib
-
 import numpy as np
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
@@ -37,7 +22,6 @@ def sdv_quality(real, syn, schema):
 
 
 def pmse_ratio(real, syn, schema, seed=0, n_perm=5):
-    """pMSE of a CART discriminator, divided by its mean under permuted labels (null)."""
     both = pd.concat([real, syn], ignore_index=True)
     X = np.column_stack([pd.Categorical(both[c]).codes if schema[c] == "cat" else both[c].values
                          for c in real.columns])
@@ -64,7 +48,7 @@ def main():
             if not f.exists():
                 continue
             syn = pd.read_pickle(f)
-            for col, t in SCHEMA[name].items():  # SDV may return numeric dtypes for categories
+            for col, t in SCHEMA[name].items():
                 if t == "cat":
                     syn[col] = syn[col].astype(str)
             g = m[(m.dataset == name) & (m.method == meth)]

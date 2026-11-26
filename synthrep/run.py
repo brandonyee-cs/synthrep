@@ -1,12 +1,6 @@
-"""Generate synthetic datasets and run the analysis battery on each. Resumable (JSONL).
-
-  python -m synthrep.run --methods bootstrap,marginals,cart,copula --reps 10
-  python -m synthrep.run --methods ctgan,tvae --reps 3 --procs 4
-"""
-from __future__ import annotations
-
 import argparse
 import json
+import os
 import pathlib
 import time
 from multiprocessing import Pool
@@ -15,13 +9,12 @@ from .analyses import run_battery
 from .data import ROOT, load
 from .synth import synthesize
 
-EPOCHS = {"ctgan": 100, "tvae": 150, "ctgan300": 300}
+EPOCHS = {"ctgan300": 300, "tvae300": 300}
 
 
 def one(job):
     name, method, rep, epochs, save_dir = job
     import torch
-    import os
     torch.set_num_threads(int(os.environ.get("SYN_THREADS", 1)))
     df = load(name)
     seed = 1000 * rep + 7
@@ -39,7 +32,7 @@ def one(job):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--datasets", default="gss,acs")
-    ap.add_argument("--methods", default="bootstrap,marginals,cart,copula")
+    ap.add_argument("--methods", default="bootstrap,marginals,copula")
     ap.add_argument("--reps", type=int, default=10)
     ap.add_argument("--procs", type=int, default=4)
     ap.add_argument("--out", default=str(ROOT / "synth_results/estimates.jsonl"))
@@ -49,7 +42,6 @@ def main():
     save_dir = out.parent / "samples"
     save_dir.mkdir(exist_ok=True)
 
-    # real-data reference estimates
     real_path = out.parent / "real.jsonl"
     if not real_path.exists():
         with real_path.open("w") as f:
